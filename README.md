@@ -11,7 +11,6 @@ This example demonstrates how to use channels for communication between goroutin
 - **File:** `Gochannel.go`
 - **Description:** This showcases the basic usage of channels in Go, including sending and receiving data between goroutines. The code includes functions to handle data streaming, buffering, and flushing, as well as a function to simulate sending random data through a channel. The `main` function initializes the channel and starts the goroutines for data sending and streaming.
 
-
 ### 2. PostgreDB
 
 This example demonstrates how to query and prioritize data from a PostgreSQL database using Go.
@@ -25,3 +24,10 @@ This example demonstrates how to perform basic operations (insert, query, update
 
 - **File:** `mongoDB.go`
 - **Description:** This code connects to a MongoDB database, performs basic CRUD operations, and prints the results. The `main` function initializes the MongoDB client, connects to the database, and executes the insert, query, update, and delete operations on a sample document. The example uses a local MongoDB instance running on `mongodb://localhost:27017`.
+
+### 4. RESTful API
+
+This example demonstrates how to create a RESTful API using Go.
+
+- **File:** `restfulAPI.go`
+- **Description:** This code sets up a basic RESTful API server using the `net/http` package in Go. It includes handlers for different HTTP methods (GET, POST, PUT, DELETE) to perform CRUD operations on a sample resource. The `main` function initializes the server, defines the routes, and starts listening for incoming HTTP requests on a specified port.
