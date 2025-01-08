@@ -34,6 +34,8 @@ func resourceHandler(w http.ResponseWriter, r *http.Request) {
 		createResource(w, r)
 	case http.MethodPut:
 		updateResource(w, r)
+	case http.MethodPatch:
+		patchResource(w, r)
 	case http.MethodDelete:
 		deleteResource(w, r)
 	case http.MethodHead:
@@ -85,6 +87,28 @@ func updateResource(w http.ResponseWriter, r *http.Request) {
 	if _, ok := resources[id]; ok {
 		resources[id] = resource
 		json.NewEncoder(w).Encode(resource)
+	} else {
+		http.Error(w, "Resource not found", http.StatusNotFound)
+	}
+}
+
+// patchResource partially updates an existing resource identified by ID with new data from the request body.
+// Parameters:
+// - w: The http.ResponseWriter to write the response to.
+// - r: The http.Request to handle.
+func patchResource(w http.ResponseWriter, r *http.Request) {
+	id := r.URL.Query().Get("id")
+	if existingResource, ok := resources[id]; ok {
+		var updates map[string]interface{}
+		if err := json.NewDecoder(r.Body).Decode(&updates); err != nil {
+			http.Error(w, "Invalid request payload", http.StatusBadRequest)
+			return
+		}
+		if name, ok := updates["name"].(string); ok {
+			existingResource.Name = name
+		}
+		resources[id] = existingResource
+		json.NewEncoder(w).Encode(existingResource)
 	} else {
 		http.Error(w, "Resource not found", http.StatusNotFound)
 	}

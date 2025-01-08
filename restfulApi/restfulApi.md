@@ -12,6 +12,7 @@ A RESTful API is an architectural style for designing networked applications. It
    - **GET**: Retrieve a resource.
    - **POST**: Create a new resource.
    - **PUT**: Update an existing resource.
+   - **PATCH**: Partially update a resource.
    - **DELETE**: Remove a resource.
    - **HEAD**: Retrieve metadata about a resource without the body.
 
@@ -56,6 +57,10 @@ Before you start, ensure that Go is installed on your system. Then, follow these
         ```sh
         curl -i -X PUT -H "Content-Type: application/json" -d '{"id":"1","name":"Updated Sample"}' "http://localhost:8080/resource?id=1"
         ```
+      - **PATCH** to partially update a resource:
+        ```sh
+        curl -i -X PATCH -H "Content-Type: application/json" -d '{"name":"Partially Updated Sample"}' "http://localhost:8080/resource?id=1"
+        ```
       - **DELETE** a resource:
         ```sh
         curl -i -X DELETE "http://localhost:8080/resource?id=1"
@@ -64,5 +69,3 @@ Before you start, ensure that Go is installed on your system. Then, follow these
         ```sh
         curl -i -I "http://localhost:8080/resource?id=1"
         ```
-
-This document should help you understand the basic execution of a RESTful API using Go.
