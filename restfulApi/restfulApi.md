@@ -27,6 +27,7 @@ A RESTful API is an architectural style for designing networked applications. It
 Before you start, ensure that Go is installed on your system. Then, follow these steps to set up the project:
 
 1. Initialize a Go module (if not already initialized):
+
     ```sh
     go mod init restfulApi
     ```
@@ -38,6 +39,7 @@ Before you start, ensure that Go is installed on your system. Then, follow these
 2. Run the Go program:
     - Save the provided code into a file named `restfulApi.go`.
     - Execute the program using the following command:
+
       ```sh
       go run restfulApi.go
       ```
@@ -46,26 +48,37 @@ Before you start, ensure that Go is installed on your system. Then, follow these
     - Use a tool like `curl` or Postman to interact with the API.
     - Example `curl` commands:
       - **GET** a resource:
+
         ```sh
         curl -i -X GET "http://localhost:8080/resource?id=1"
         ```
+
       - **POST** a new resource:
+
         ```sh
         curl -i -X POST -H "Content-Type: application/json" -d '{"id":"1","name":"Sample"}' "http://localhost:8080/resource"
         ```
+
       - **PUT** to update a resource:
+
         ```sh
         curl -i -X PUT -H "Content-Type: application/json" -d '{"id":"1","name":"Updated Sample"}' "http://localhost:8080/resource?id=1"
         ```
+
       - **PATCH** to partially update a resource:
+
         ```sh
         curl -i -X PATCH -H "Content-Type: application/json" -d '{"name":"Partially Updated Sample"}' "http://localhost:8080/resource?id=1"
         ```
+
       - **DELETE** a resource:
+
         ```sh
         curl -i -X DELETE "http://localhost:8080/resource?id=1"
         ```
+
       - **HEAD** to check a resource:
+
         ```sh
         curl -i -I "http://localhost:8080/resource?id=1"
         ```

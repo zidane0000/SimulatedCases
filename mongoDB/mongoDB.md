@@ -7,11 +7,13 @@ This example demonstrates how to perform basic operations (insert, query, update
 Before you start, make sure you have Go installed on your system. Then, follow these steps to install the required Go packages:
 
 1. Initialize a Go module (if not already initialized):
+
     ```sh
     go mod init your_module_name
     ```
 
 2. Install the MongoDB Go driver:
+
     ```sh
     go get go.mongodb.org/mongo-driver/mongo
     ```
@@ -19,15 +21,19 @@ Before you start, make sure you have Go installed on your system. Then, follow t
 ## Usage
 
 1. Ensure MongoDB is installed and running on your local machine. You can check if MongoDB is running by executing the following command in your terminal:
+
     ```sh
     mongo --eval "db.runCommand({ connectionStatus: 1 })"
     ```
+
    If MongoDB is running, this command will return the connection status. If not, start MongoDB using:
+
     ```sh
     mongod
     ```
 
 2. Run the Go program:
+
     ```sh
     go run mongoDB.go
     ```
